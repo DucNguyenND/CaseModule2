@@ -41,7 +41,7 @@ public class LoginAccount {
         }
         if (id.equals("Admin") && password.equals("Admin")){
            checkadmin=1;
-           nameLogin="===Xin chào sếp===";
+           nameLogin="===Xin chào admin===";
 
         }
         if (checkguest==1){

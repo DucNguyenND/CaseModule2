@@ -16,7 +16,7 @@ public class Register {
             while (true) {
                 System.out.println("Nhập tên tài khoản:");
                 id = sc.nextLine();
-                if (ValidateLogin.valiDateAccount(id)) {
+                if (Colltrollers.ValidateLogin.valiDateAccount(id)) {
                     if (checkedid(id,guests)) {
                         break;
                     } else
@@ -31,7 +31,7 @@ public class Register {
                 System.out.println("Xác nhận lại mật khẩu:");
                 String passWordConfim = sc.nextLine();
                 if (passWord.equals(passWordConfim)) {
-                    if (ValidateLogin.valiDatePassword(passWord)) {
+                    if (Colltrollers.ValidateLogin.valiDatePassword(passWord)) {
                         break;
                     } else
                         System.out.println("Vui lòng nhập mật khẩu ít nhất 6 ký tự và không có ký tự đặc biệt");
@@ -42,7 +42,7 @@ public class Register {
             while (true) {
                 System.out.println("Vui lòng nhập tên của bạn:");
                 name = sc.nextLine();
-                if (ValidateLogin.valiDateName(name)) {
+                if (Colltrollers.ValidateLogin.valiDateName(name)) {
                     break;
                 }
             }
@@ -50,7 +50,7 @@ public class Register {
                 System.out.println("Vui lòng nhập số điện thoại của bạn:");
                 System.out.println("Số điện thoại bắt đầu từ 0 và có 10 chữ số");
                 phoneNumber = sc.nextLine();
-                if (ValidateLogin.valiDatePhoneNumber(String.valueOf(phoneNumber))) {
+                if (Colltrollers.ValidateLogin.valiDatePhoneNumber(String.valueOf(phoneNumber))) {
                     break;
                 } else System.out.println("Nhập sai số điện thoại, vui lòng nhập lại");
             }

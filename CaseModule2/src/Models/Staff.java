@@ -26,6 +26,6 @@ public class Staff extends Guest{
                 "," + idCard;
     }
     public String shownv(){
-        return super.showGuest()+ " Số CMT/CCCD: "+idCard;
+        return super.showGuest()+ " Số CMT/CCCD : "+idCard;
     }
 }

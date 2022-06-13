@@ -20,9 +20,9 @@ public class ManagerAdmin {
         WriteAndReadAccountStaff.read(staff);
         System.out.println(nameLogin);
         System.out.println("1. Thêm nhân viên");
-                    System.out.println("2.Xem danh sách nhân viên");
+        System.out.println("2. Xem danh sách nhân viên");
         System.out.println("3. Sửa thông tin nhân viên");
-        System.out.println("4. Đuổi việc nhân viên");
+        System.out.println("4. Xóa nhân viên");
         System.out.println("5. Xem thông tin khách hàng");
         System.out.println("6. Xem doanh thu cửa hàng");
         System.out.println("7. Đăng xuất");
@@ -44,26 +44,6 @@ public class ManagerAdmin {
                             showTurnover(cartGuest);
                         }else if (choice==7){
                         break;}
-//                if (ValidateChoice.validateChoiceStaff(String.valueOf(choice))){
-//                switch (choice){
-//                    case 1:
-//                        addStaff(staff);
-//                        break;
-//                    case 2:
-//                        editStaff(staff);
-//                        break;
-//                    case 3:
-//                        remoteStaff(staff);
-//                        break;
-//                    case 4:
-//                        showGuest(guests);
-//                        break;
-//                    case 5:
-//                        showTurnover(cartGuest);
-//                        break;
-//                    case 6:
-//                        return;
-//                }
                 }else {
                     System.out.println("Vui lòng chọn từ 1-7");
                 }

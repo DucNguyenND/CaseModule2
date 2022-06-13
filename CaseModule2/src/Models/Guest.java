@@ -64,6 +64,6 @@ public class Guest {
                 "," + address;
     }
     public String showGuest(){
-        return "Tên tài khoản"+ id + " Mật khẩu: "+password+ "Tên : "+name+ " Số điện thoại: "+phoneNumber+ " Địa chỉ: "+address;
+        return "Tên tài khoản: "+ id + " Mật khẩu: "+password+ "Tên : "+name+ " Số điện thoại: "+phoneNumber+ " Địa chỉ: "+address;
     }
 }

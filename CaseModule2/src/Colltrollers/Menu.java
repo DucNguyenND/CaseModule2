@@ -40,9 +40,6 @@ public class Menu {
                             break;
                         } else System.out.println("Vui lòng chọn lại");
                     }
-//                } catch (Exception e) {
-//                    System.out.println("Vui lòng chọn lại");
-//                }
             }
         }
     }

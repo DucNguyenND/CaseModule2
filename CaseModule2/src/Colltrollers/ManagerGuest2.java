@@ -4,6 +4,7 @@ import Models.Computer;
 import Models.ComputerGuest;
 import Models.Guest;
 import io.*;
+import io.ValidateChoice;
 
 import java.util.List;
 import java.util.Scanner;
@@ -96,26 +97,6 @@ public class ManagerGuest2 {
             }
             computerscartguest.clear();
             readCartGuest(cartguest,nameID,computerscartguest);
-//                for (int i = 0; i < cartguest.size(); i++) {
-//                if (nameID.equals(cartguest.get(i).getNameID())){
-//                    String brand=cartguest.get(i).getBrand();
-//                    String name=cartguest.get(i).getName();
-//                    String chip=cartguest.get(i).getChip();
-//                    String display=cartguest.get(i).getDisplay();
-//                    String ram=cartguest.get(i).getRam();
-//                    String battery=cartguest.get(i).getBattery();
-//                    int amount=cartguest.get(i).getAmount();
-//                    int price= cartguest.get(i).getPrice();
-//                    computerscartguest.add(new Computer(brand,name,chip,display,ram,battery,amount,price));}}
-//                int sumPrice=0;
-//                for (int j = 0; j <computerscartguest.size() ; j++) {
-//                    System.out.println("Tên hàng hóa: "+computerscartguest.get(j).getName());
-//                    System.out.println("Giá tiền :" + computerscartguest.get(j).getPrice());
-//                    System.out.println("");
-//                    sumPrice+=computerscartguest.get(j).getPrice();
-//                }
-//                System.out.println("Tổng số tiền  " + sumPrice);
-//            managerGuest2(computers,cartguest,nameLogin,nameID,computerscartguest);
             break;
     }catch (Exception e){
                 System.out.println("Vui lòng chọn lại");
@@ -125,19 +106,6 @@ public class ManagerGuest2 {
     public static void showCart(List<ComputerGuest> cartguest,String nameID,List<Computer> computerscartguest){
 
         int sumPrice=0;
-//        for (int i = 0; i < cartguest.size(); i++) {
-//            if (nameID.equals(cartguest.get(i).getNameID())){
-//                String brand=cartguest.get(i).getBrand();
-//                String name=cartguest.get(i).getName();
-//                String chip=cartguest.get(i).getChip();
-//                String display=cartguest.get(i).getDisplay();
-//                String ram=cartguest.get(i).getRam();
-//                String battery=cartguest.get(i).getBattery();
-//                int amount=cartguest.get(i).getAmount();
-//                int price= cartguest.get(i).getPrice();
-//                computerscartguest.add(new Computer(brand,name,chip,display,ram,battery,amount,price));
-//            }
-//        }
         for (int i = 0; i <computerscartguest.size() ; i++) {
             System.out.println("Tên hàng hóa: "+computerscartguest.get(i).getName());
             System.out.println("Giá tiền :" + computerscartguest.get(i).getPrice());
