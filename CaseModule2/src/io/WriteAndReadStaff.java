@@ -38,8 +38,9 @@ public class WriteAndReadStaff {
                 String display=arr[3];
                 String ram=arr[4];
                 String battery=arr[5];
-                int price= Integer.parseInt(arr[6]);
-                int amount= Integer.parseInt(arr[7]);
+                int amount= Integer.parseInt(arr[6]);
+                int price= Integer.parseInt(arr[7]);
+
                 computers.add(new Computer(brand,name,chip,display,ram,battery,amount,price));
                 str = bufferedReader.readLine();
             }

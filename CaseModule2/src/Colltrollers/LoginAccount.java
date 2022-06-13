@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class LoginAccount {
     static Scanner input=new Scanner(System.in);
-    public static void loginaccount(List<Guest> guests, List<Staff> staff, List<Computer> computers, List<ComputerGuest> cartguest){
+    public static void loginaccount(List<Guest> guests, List<Staff> staff, List<Computer> computers, List<ComputerGuest> cartguest,List<Computer> computerscartguest){
         WriteAndReadAccountStaff.read(staff);
         while (true){
         System.out.println("Vui lòng nhập tên tài khoản:");
@@ -27,6 +27,7 @@ public class LoginAccount {
             if (guests.get(i).getId().equals(id)&&guests.get(i).getPassword().equals(password)){
                 checkguest=1;
                 nameLogin= "Xin chào "+ guests.get(i).getName();
+                nameID=guests.get(i).getId();
                 break;
             }
         }
@@ -34,7 +35,7 @@ public class LoginAccount {
             if (staff.get(i).getId().equals(id)&&staff.get(i).getPassword().equals(password)){
                 checkstaff=1;
                 nameLogin="Xin chào "+ staff.get(i).getName();
-                nameID=staff.get(i).getName();
+                nameID=staff.get(i).getId();
                 break;
             }
         }
@@ -44,13 +45,13 @@ public class LoginAccount {
 
         }
         if (checkguest==1){
-            ManagerGuest.MenuGuest(computers,cartguest,nameLogin,nameID);
+            ManagerGuest2.managerGuest2(computers,cartguest,nameLogin,nameID,computerscartguest,guests);
             break;
         }else if (checkstaff==1){
-            ManagerStaff.menuStaff(computers,nameLogin,guests);
+            ManagerStaff.menuStaff(computers,nameLogin,guests,cartguest);
             break;
              }else if (checkadmin==1){
-            ManagerAdmin.menuAdmin(staff,nameLogin);
+            ManagerAdmin.menuAdmin(staff,nameLogin,guests,computers,cartguest);
             break;
                  } else {
                         System.out.println("Sai thông tin đăng nhập");

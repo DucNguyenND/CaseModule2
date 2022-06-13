@@ -24,7 +24,7 @@ public class WriteAndReadCartGuest {
             throw new RuntimeException(e);
         }
     }
-    public void read(List<ComputerGuest> computers){
+    public void read(List<ComputerGuest> computerGuests){
         try {
 
             FileReader fileReader=new FileReader(file);
@@ -39,9 +39,10 @@ public class WriteAndReadCartGuest {
                 String display=arr[4];
                 String ram=arr[5];
                 String battery=arr[6];
-                int price= Integer.parseInt(arr[7]);
-                int amount= Integer.parseInt(arr[8]);
-                computers.add(new ComputerGuest(nameID,brand,name,chip,display,ram,battery,amount,price));
+                int price= Integer.parseInt(arr[8]);
+                int amount= Integer.parseInt(arr[7]);
+                String status=arr[9];
+                computerGuests.add(new ComputerGuest(nameID,brand,name,chip,display,ram,battery,amount,price,status));
                 str = bufferedReader.readLine();
             }
             bufferedReader.close();

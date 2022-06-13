@@ -1,6 +1,7 @@
 package Colltrollers;
 
 import Models.Computer;
+import Models.ComputerGuest;
 import Models.Guest;
 import Models.Staff;
 import io.ValidateChoice;
@@ -13,17 +14,17 @@ import java.util.Scanner;
 public class ManagerStaff {
     static Scanner scannerStaff =new Scanner(System.in);
     static WriteAndReadStaff writeAndRead=new WriteAndReadStaff();
-    public static void menuStaff(List<Computer> computers, String nameLogin, List<Guest>guests){
+    public static void menuStaff(List<Computer> computers, String nameLogin, List<Guest>guests,List<ComputerGuest> cartguest){
         writeAndRead.read(computers);
-        while (true){
-        try {
-        while (true){
+            while (true){
             System.out.println(nameLogin);
-        System.out.println("====Menu====");
-        System.out.println("1. Thêm Laptop");
-        System.out.println("2. Xóa Laptop");
-        System.out.println("3. Sửa thông tin Laptop");
-        System.out.println("4. Hiển thị thông tin khách hàng");
+            System.out.println("====Menu====");
+            System.out.println("1. Thêm Laptop");
+            System.out.println("2. Xóa Laptop");
+            System.out.println("3. Sửa thông tin Laptop");
+            System.out.println("4. Hiển thị thông tin khách hàng");
+            System.out.println("5. Đăng xuất");
+        try {
         int choice=Integer.parseInt(scannerStaff.nextLine());
         if (ValidateChoice.validateChoiceStaff(String.valueOf(choice))){
             switch (choice){
@@ -36,14 +37,14 @@ public class ManagerStaff {
                 case 3:
                     editLaptop(computers);
                     break;
+                case 4:
+                    showGuest(guests,cartguest);
+                case 5:
+                    return;
             }
-            break;
         }
         else System.out.println("Vui lòng chọn lại");
-        }
-        break;
-        }
-        catch (NumberFormatException e){
+        }catch (NumberFormatException e){
             System.out.println("Vui lòng nhập lại");
         }
         }
@@ -113,10 +114,23 @@ public class ManagerStaff {
                 if (checkremote){
                     System.out.println("Đã xóa!");
                 }else
-                    System.out.println("Vui lòng nhập đúng tên laptop để xóa");
+                    System.out.println("Vui lòng nhập đúng tên laptop");
             }
         }
-        public static void showGuest(){
-
-        }
+        public static void showGuest(List<Guest>guests,List<ComputerGuest> cartguest){
+            for (int i = 0; i <cartguest.size()-1; i++) {
+                if (cartguest.get(i).getNameID().equals(cartguest.get(i+1).getNameID())){
+                    continue;
+                }else {
+                for (int j = 0; j < guests.size(); j++) {
+                if (cartguest.get(i).getNameID().equals(guests.get(j).getId())){
+                    System.out.println("Khách hàng: "+guests.get(j).getName());
+                    System.out.println("Phone number:" + guests.get(j).getPhoneNumber());
+                    System.out.println("Địa chỉ nhận hàng: " + guests.get(j).getAddress());
+                }
+                }
+                }
+                    cartguest.get(i).showCartGuest();
+            }
+    }
 }

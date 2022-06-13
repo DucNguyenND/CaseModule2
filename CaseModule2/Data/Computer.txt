@@ -1,1 +1,4 @@
-Dell,dell ml,i5,full hd,8gb,8000mah,5,15265
+Dell,dell ml,i5,full hd,8gb,8000mah,1,15265
+Dell,Dell 3543,i5-5200U,FullHD,4GB,4h,6,8500000
+Dell,Dell i5-3222,i5,hd,6gb,8h,5,122222
+Asus,Asus 2222,i5,HD,6gb,6h,15,222365

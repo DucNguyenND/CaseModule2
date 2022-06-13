@@ -18,12 +18,13 @@ public class Menu {
    static List<ComputerGuest> cartguest=new ArrayList<>();
    static List<Computer> computers=new ArrayList<>();
     static List<Staff> staff=new ArrayList<>();
+    static List<Computer> computerscartguest=new ArrayList<>();
 
     public static void login() {
         WriteAndReadGuest.readFileGuest(guests);
         while (true) {
             while (true) {
-                try {
+//                try {
                     while (true) {
                         System.out.println("====Menu====");
                         System.out.println("1. Đăng Nhập");
@@ -32,16 +33,16 @@ public class Menu {
                         int choice = Integer.parseInt(sc.nextLine());
                         if (ValidateChoice.validatechoice(String.valueOf(choice))) {
                             if (choice == 1) {
-                                LoginAccount.loginaccount(guests, staff, computers, cartguest);
+                                LoginAccount.loginaccount(guests, staff, computers, cartguest,computerscartguest);
                             } else {
                                 Register.register(guests);
                             }
                             break;
                         } else System.out.println("Vui lòng chọn lại");
                     }
-                } catch (Exception e) {
-                    System.out.println("Vui lòng chọn lại");
-                }
+//                } catch (Exception e) {
+//                    System.out.println("Vui lòng chọn lại");
+//                }
             }
         }
     }
