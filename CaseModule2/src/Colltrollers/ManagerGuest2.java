@@ -4,7 +4,7 @@ import Models.Computer;
 import Models.ComputerGuest;
 import Models.Guest;
 import io.*;
-import io.ValidateChoice;
+import Validate.ValidateChoice;
 
 import java.util.List;
 import java.util.Scanner;
@@ -30,8 +30,9 @@ public class ManagerGuest2 {
         System.out.println("2. Sắp xếp laptop theo giá");
         System.out.println("3. Xem giỏ hàng");
         System.out.println("4. Thanh toán");
-        System.out.println("5. Đổi mật khẩu");
-        System.out.println("6. Đăng xuất");
+        System.out.println("5. Xem laptop đã mua");
+        System.out.println("6. Đổi mật khẩu");
+        System.out.println("7. Đăng xuất");
         int choiceguest=Integer.parseInt(scannerGuest.nextLine());
         if (ValidateChoice.validateChoiceGuest(String.valueOf(choiceguest))){
         switch (choiceguest){
@@ -50,13 +51,16 @@ public class ManagerGuest2 {
                 pay(computerscartguest,computers,cartguest);
                 break;
             case 5:
-                changePassword(guests,nameID);
+                showBought(cartguest);
                 break;
             case 6:
+                changePassword(guests,nameID);
+                break;
+            case 7:
                 return;
         }
         break;
-        }else System.out.println("Vui lòng chọn từ 1-6");
+        }else System.out.println("Vui lòng chọn từ 1-7");
     }catch (Exception e) {
                 System.out.println("Vui lòng nhập lại");
             }
@@ -106,12 +110,13 @@ public class ManagerGuest2 {
     public static void showCart(List<ComputerGuest> cartguest,String nameID,List<Computer> computerscartguest){
 
         int sumPrice=0;
-        for (int i = 0; i <computerscartguest.size() ; i++) {
-            System.out.println("Tên hàng hóa: "+computerscartguest.get(i).getName());
-            System.out.println("Giá tiền :" + computerscartguest.get(i).getPrice());
+        for (int i = 0; i <cartguest.size() ; i++) {
+            if(cartguest.get(i).getStatus().equals("Chưa thanh toán")){
+            System.out.println("Tên hàng hóa: "+cartguest.get(i).getName());
+            System.out.println("Giá tiền :" + cartguest.get(i).getPrice());
             System.out.println("");
-            sumPrice+=computerscartguest.get(i).getPrice();
-        }
+            sumPrice+=cartguest.get(i).getPrice();
+        }}
         System.out.println("Tổng số tiền  " + sumPrice);
     }
     public static void readCartGuest(List<ComputerGuest> cartguest,String nameID,List<Computer> computerscartguest){
@@ -181,6 +186,13 @@ public class ManagerGuest2 {
             WriteAndReadGuest.write(guests);
         }else System.out.println("Sai mật khẩu hoặc mật khẩu mới không trùng khớp");
         break;
+        }
+    }
+    public static void showBought(List<ComputerGuest> cartguest){
+        for (int i = 0; i < cartguest.size(); i++) {
+            if (cartguest.get(i).getStatus().equals("Đã mua")){
+                System.out.println(cartguest.get(i).showCartGuest());
+            }
         }
     }
 }

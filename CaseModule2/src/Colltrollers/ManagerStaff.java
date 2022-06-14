@@ -4,7 +4,7 @@ import Models.Computer;
 import Models.ComputerGuest;
 import Models.Guest;
 import Models.Staff;
-import io.ValidateChoice;
+import Validate.ValidateChoice;
 import io.ValidateComputer;
 import io.WriteAndReadStaff;
 

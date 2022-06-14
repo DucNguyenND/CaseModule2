@@ -4,7 +4,7 @@ import Models.Computer;
 import Models.ComputerGuest;
 import Models.Guest;
 import Models.Staff;
-import io.ValidateChoice;
+import Validate.ValidateChoice;
 import io.WriteAndReadGuest;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class Menu {
         WriteAndReadGuest.readFileGuest(guests);
         while (true) {
             while (true) {
-//                try {
+                try {
                     while (true) {
                         System.out.println("====Menu====");
                         System.out.println("1. Đăng Nhập");
@@ -40,6 +40,8 @@ public class Menu {
                             break;
                         } else System.out.println("Vui lòng chọn lại");
                     }
+            }catch (Exception e){
+                    System.out.println("Vui lòng chọn lại");}
             }
         }
     }

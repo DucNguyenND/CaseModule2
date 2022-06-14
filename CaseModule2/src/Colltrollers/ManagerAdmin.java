@@ -4,7 +4,7 @@ import Models.Computer;
 import Models.ComputerGuest;
 import Models.Guest;
 import Models.Staff;
-import io.ValidateChoice;
+import Validate.ValidateChoice;
 import io.WriteAndReadAccountStaff;
 import io.WriteAndReadCartGuest;
 import io.WriteAndReadGuest;
@@ -54,8 +54,9 @@ public class ManagerAdmin {
             break;
             }
         }
-    public static Staff creatStaff(){
+    public static Staff creatStaff(List<Staff> staff){
         String id="";
+        boolean checkID=false;
         while (true){
         System.out.println("Nhập id nhân viên");
         id= scannerAdmin.nextLine();
@@ -76,8 +77,8 @@ public class ManagerAdmin {
         return new Staff(id,passWord,name,phoneNumber,address,idCard);
     }
     public static void addStaff(List<Staff> staff){
-        creatStaff();
-        staff.add(creatStaff());
+        creatStaff(staff);
+        staff.add(creatStaff(staff));
         WriteAndReadAccountStaff.write(staff);
     }
     public static void editStaff(List<Staff> staff) {
@@ -93,7 +94,7 @@ public class ManagerAdmin {
             }
         }
         if (check){
-            staff.set(indexStaff,creatStaff());
+            staff.set(indexStaff,creatStaff(staff));
             WriteAndReadAccountStaff.write(staff);
             System.out.println("Done!");
         }else {
@@ -112,8 +113,14 @@ public class ManagerAdmin {
                     break;
                 }
             }
+            if (indexStaff!=-1){
             staff.remove(indexStaff);
+            System.out.println("Xóa thành công");
             break;
+            }else {
+                System.out.println("ID nhập vào không trùng khớp");
+                break;
+            }
         }
     }
     public static void showGuest(List<Guest> guests){

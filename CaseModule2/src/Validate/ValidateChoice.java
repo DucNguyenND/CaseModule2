@@ -1,4 +1,4 @@
-package io;
+package Validate;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -8,7 +8,7 @@ public class ValidateChoice {
     private static String choice_regex="[1-2]";
     private static String choicestaff_regex="[1-5]";
     private static String choiceAdmin_regex="[1-7]";
-    private static String choiceGuest_regex="[1-6]";
+    private static String choiceGuest_regex="[1-7]";
     private static String choiceGuestSort_regex="[1-2]";
     public static boolean validate(String regex, String regex1) {
         Pattern pattern = Pattern.compile(regex1);

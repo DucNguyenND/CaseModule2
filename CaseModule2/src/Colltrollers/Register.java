@@ -56,6 +56,7 @@ public class Register {
             }
             System.out.println("Nhập địa chỉ giao hàng:");
             String anddress = sc.nextLine();
+            System.out.println("Đăng ký thành công");
             guests.add(new Guest(id, passWord, name, phoneNumber, anddress));
             WriteAndReadGuest.write(guests);
         }
